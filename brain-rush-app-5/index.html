@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brain Rush</title>
+<meta name="description" content="Brain Rush is a fast-paced quiz game that tests your knowledge across various topics. Challenge yourself and see how many questions you can answer correctly!">
+<meta name="keywords" content="quiz, trivia, brain game, knowledge test, questions, answers, challenge, fun, learning">
+<meta name="author" content="Brain Rush Team">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="Brain Rush">
+<meta property="og:description" content="Brain Rush is a fast-paced quiz game that tests your knowledge across various topics. Challenge yourself and see how many questions you can answer correctly!">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://brain-rush-quiz.netlify.app/">
+<meta property="og:image" content="https://brain-rush-quiz.netlify.app/images/brain-rush-og.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Brain Rush: a green brain badge with the words Train your brain. Beat the clock.">
+<meta property="og:site_name" content="Brain Rush">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Brain Rush">
+<meta name="twitter:description" content="Brain Rush is a fast-paced quiz game that tests your knowledge across various topics. Challenge yourself and see how many questions you can answer correctly!">
+<meta name="twitter:image" content="https://brain-rush-quiz.netlify.app/images/brain-rush-og.jpg">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#000000">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Brain Rush">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'%3E%3Cdefs%3E%3ClinearGradient%20id='g'%20x1='0'%20y1='0'%20x2='1'%20y2='1'%3E%3Cstop%20offset='0'%20stop-color='%2316a34a'/%3E%3Cstop%20offset='1'%20stop-color='%234ade80'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width='512'%20height='512'%20rx='112'%20fill='url(%23g)'/%3E%3Cg%20transform='translate(31%2031)%20scale(.88)'%3E%3Crect%20x='262'%20y='330'%20width='38'%20height='110'%20rx='18'%20fill='%2304160a'/%3E%3Cellipse%20cx='369'%20cy='355'%20rx='51'%20ry='37'%20fill='%2304160a'/%3E%3Ccircle%20cx='150'%20cy='250'%20r='74'%20fill='%2304160a'/%3E%3Ccircle%20cx='188'%20cy='182'%20r='72'%20fill='%2304160a'/%3E%3Ccircle%20cx='262'%20cy='150'%20r='74'%20fill='%2304160a'/%3E%3Ccircle%20cx='340'%20cy='168'%20r='70'%20fill='%2304160a'/%3E%3Ccircle%20cx='392'%20cy='232'%20r='66'%20fill='%2304160a'/%3E%3Ccircle%20cx='376'%20cy='300'%20r='62'%20fill='%2304160a'/%3E%3Ccircle%20cx='300'%20cy='326'%20r='66'%20fill='%2304160a'/%3E%3Ccircle%20cx='222'%20cy='322'%20r='64'%20fill='%2304160a'/%3E%3Ccircle%20cx='256'%20cy='245'%20r='112'%20fill='%2304160a'/%3E%3Cg%20fill='none'%20stroke='%2322c55e'%20stroke-linecap='round'%3E%3Cpath%20d='M250%20126Q214%20200%20262%20252'%20stroke-width='13'/%3E%3Cpath%20d='M262%20252Q300%20296%20258%20330'%20stroke-width='13'/%3E%3Cpath%20d='M140%20214Q190%20226%20176%20276'%20stroke-width='12'/%3E%3Cpath%20d='M176%20276Q166%20302%20206%20312'%20stroke-width='12'/%3E%3Cpath%20d='M300%20158Q350%20176%20330%20222'%20stroke-width='12'/%3E%3Cpath%20d='M330%20222Q318%20250%20358%20262'%20stroke-width='12'/%3E%3Cpath%20d='M388%20268Q352%20296%20364%20328'%20stroke-width='12'/%3E%3Cpath%20d='M206%20170Q226%20196%20214%20224'%20stroke-width='11'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<script>
+/* apply the saved theme before the page paints, so there is no flash */
+try { document.documentElement.setAttribute('data-theme', localStorage.getItem('br_theme') === 'light' ? 'light' : 'dark'); } catch (e) {}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+/* ---------- Themes ---------- */
+:root, html[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #000; --panel: #0b0f0c; --panel2: #121a14; --field: #050805; --line: #1f2d23;
+  --text: #e8f5ec; --muted: #93a99a;
+  --g: #22c55e; --g-soft: #0b1d12; --g-line: #2c6b42;
+  --btn-bg: linear-gradient(135deg, #22c55e, #4ade80); --btn-text: #031a0a; --btn-shadow: 0 6px 18px rgba(34,197,94,.25);
+  --bad: #f87171; --bad-bg: #1a0b0b; --bad-line: #5b2323; --ok-bg: #07160d;
+  --shadow: none;
+  --glow: radial-gradient(900px 420px at 50% -120px, rgba(34,197,94,.22), transparent 70%), radial-gradient(520px 320px at 100% 100%, rgba(163,230,53,.08), transparent 70%);
+  --flame: #fb923c; --gold: #facc15; --silver: #cbd5e1; --bronze: #d6844a;
+}
+html[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f2fbf4; --panel: #ffffff; --panel2: #e9f7ed; --field: #f7fcf8; --line: #cde4d3;
+  --text: #0c1f12; --muted: #48664f;
+  --g: #15803d; --g-soft: #e1f5e7; --g-line: #7fc695;
+  --btn-bg: #15803d; --btn-text: #ffffff; --btn-shadow: 0 6px 16px rgba(21,128,61,.22);
+  --bad: #b91c1c; --bad-bg: #fef2f2; --bad-line: #fecaca; --ok-bg: #ecfdf3;
+  --shadow: 0 6px 22px rgba(21,128,61,.08);
+  --glow: radial-gradient(900px 420px at 50% -120px, rgba(34,197,94,.22), transparent 70%), radial-gradient(520px 320px at 100% 100%, rgba(132,204,22,.12), transparent 70%);
+  --flame: #ea580c; --gold: #ca8a04; --silver: #64748b; --bronze: #b45309;
+}
+
+/* ---------- Base ---------- */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; min-height: 100vh; background: var(--bg); color: var(--text); font-family: 'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; font-size: 16px; line-height: 1.55; transition: background .25s, color .25s; }
+body::before { content: ''; position: fixed; inset: 0; z-index: -1; background: var(--glow); pointer-events: none; }
+main { max-width: 980px; margin: 0 auto; padding: 28px 20px 70px; }
+h1, h2, h3 { margin: 0; line-height: 1.15; letter-spacing: -0.01em; font-weight: 900; }
+h1 { font-size: 34px; }
+h2 { font-size: 21px; }
+h3 { font-size: 15px; color: var(--muted); font-weight: 800; margin-bottom: 12px; }
+p { margin: 0; }
+.muted { color: var(--muted); }
+.accent { color: var(--g); }
+button { font: inherit; cursor: pointer; }
+:focus-visible { outline: 3px solid var(--g); outline-offset: 2px; }
+i.fa-solid, i.fa-regular { line-height: 1; }
+
+/* ---------- Top bar ---------- */
+.bar { position: sticky; top: 0; z-index: 5; flex-wrap: wrap; display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 10px 20px; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 900; font-size: 22px; letter-spacing: -0.02em; }
+.logo { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 12px; background: var(--btn-bg); color: var(--btn-text); font-size: 19px; box-shadow: var(--btn-shadow); transform: rotate(-6deg); }
+.nav { display: flex; align-items: center; gap: 8px; }
+.who { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); font-size: 14px; font-weight: 700; padding: 0 6px; max-width: 130px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* ---------- Buttons ---------- */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; background: var(--btn-bg); color: var(--btn-text); border: 1px solid transparent; padding: 12px 20px; border-radius: 12px; font-weight: 800; box-shadow: var(--btn-shadow); transition: transform .12s, filter .15s, background .15s, border-color .15s; }
+.btn:hover { filter: brightness(1.07); transform: translateY(-2px); }
+.btn:active { transform: translateY(0); }
+.btn.alt { background: transparent; color: var(--g); border-color: var(--g-line); box-shadow: none; }
+.btn.alt:hover, .btn.alt.on { background: var(--g-soft); filter: none; border-color: var(--g); }
+.btn.ghost { background: transparent; color: var(--text); border-color: var(--line); box-shadow: none; }
+.btn.ghost:hover { background: var(--panel2); filter: none; border-color: var(--g-line); }
+.btn.sm { padding: 8px 13px; font-size: 14px; border-radius: 10px; }
+.btn.block { width: 100%; }
+.btn:disabled { opacity: .4; cursor: not-allowed; pointer-events: none; }
+.actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+/* ---------- Forms ---------- */
+label { display: block; margin-bottom: 14px; font-size: 14px; font-weight: 800; }
+.field { position: relative; display: block; margin-top: 6px; }
+.field > i { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 15px; pointer-events: none; }
+input { display: block; width: 100%; padding: 12px 12px 12px 42px; background: var(--field); color: var(--text); border: 1.5px solid var(--line); border-radius: 12px; font: inherit; font-weight: 600; transition: border-color .15s, box-shadow .15s; }
+input:focus { outline: none; border-color: var(--g); box-shadow: 0 0 0 4px color-mix(in srgb, var(--g) 22%, transparent); }
+.field:focus-within > i { color: var(--g); }
+.msg { display: flex; align-items: flex-start; gap: 10px; padding: 11px 13px; border-radius: 12px; font-size: 14px; font-weight: 700; margin: 14px 0; border: 1px solid; }
+.msg::before { font-family: 'Font Awesome 6 Free'; font-weight: 900; margin-top: 1px; }
+.msg.err { color: var(--bad); border-color: var(--bad-line); background: var(--bad-bg); }
+.msg.err::before { content: '\f071'; }
+.msg.ok { color: var(--g); border-color: var(--g-line); background: var(--ok-bg); }
+.msg.ok::before { content: '\f058'; }
+.msg:empty { display: none; }
+
+/* ---------- Cards ---------- */
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 22px; box-shadow: var(--shadow); }
+.ico { display: inline-flex; align-items: center; justify-content: center; flex: none; width: 40px; height: 40px; border-radius: 12px; background: var(--g-soft); color: var(--g); font-size: 17px; }
+.chips { list-style: none; padding: 0; margin: 0; display: flex; gap: 10px; flex-wrap: wrap; }
+.chip { display: flex; align-items: center; gap: 10px; padding: 10px 14px 10px 10px; border: 1px solid var(--line); background: var(--panel); border-radius: 14px; box-shadow: var(--shadow); }
+.chip strong { display: block; font-size: 22px; line-height: 1.05; font-weight: 900; }
+.chip span.t { font-size: 12.5px; color: var(--muted); font-weight: 700; }
+.chip .ico.fire { color: var(--flame); }
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.rise { animation: rise .45s both; animation-delay: calc(var(--i, 0) * 70ms); }
+
+/* ---------- Sign in page ---------- */
+.auth { display: grid; grid-template-columns: 1.1fr 1fr; gap: 44px; align-items: center; min-height: calc(100vh - 150px); }
+.hero-art { position: relative; width: 190px; height: 130px; margin-bottom: 14px; }
+.brain-big { position: absolute; left: 0; top: 8px; width: 110px; height: 110px; border-radius: 32px; background: var(--btn-bg); color: var(--btn-text); display: flex; align-items: center; justify-content: center; font-size: 56px; transform: rotate(-7deg); box-shadow: 0 14px 40px rgba(34,197,94,.35); animation: pulse 3s ease-in-out infinite; }
+@keyframes pulse { 50% { transform: rotate(-3deg) scale(1.05); } }
+.floaty { position: absolute; color: var(--g); font-size: 22px; animation: bob 3.2s ease-in-out infinite; }
+.f1 { left: 124px; top: 0; }
+.f2 { left: 156px; top: 52px; color: var(--gold); animation-delay: -.8s; }
+.f3 { left: 118px; top: 92px; animation-delay: -1.6s; font-size: 20px; }
+.f4 { left: 4px; top: -6px; color: var(--flame); animation-delay: -2.2s; font-size: 18px; }
+@keyframes bob { 50% { transform: translateY(-9px) rotate(8deg); } }
+.hero h1 { font-size: 44px; }
+.hero > p { margin-top: 14px; color: var(--muted); max-width: 440px; font-size: 17px; font-weight: 600; }
+.hero .chips { margin-top: 26px; }
+.form-card h2 { margin-bottom: 4px; }
+.seg { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 4px; background: var(--field); border: 1px solid var(--line); border-radius: 14px; margin-bottom: 20px; }
+.seg-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: transparent; border: none; color: var(--muted); padding: 10px; border-radius: 10px; font-weight: 800; transition: background .15s, color .15s; }
+.seg-btn.on { background: var(--btn-bg); color: var(--btn-text); }
+.seg-btn:not(.on):hover { color: var(--text); }
+.alt-actions { display: grid; gap: 10px; margin-top: 14px; }
+.narrow-card { max-width: 560px; margin: 20px auto; }
+.steps { margin: 0; padding-left: 20px; display: grid; gap: 10px; }
+.code { font-family: ui-monospace, Consolas, monospace; font-size: 13px; background: var(--field); border: 1px solid var(--line); border-radius: 6px; padding: 1px 6px; }
+
+/* ---------- Home ---------- */
+.page-head { margin-bottom: 22px; }
+.page-head p { margin-top: 6px; font-weight: 600; }
+.split { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; }
+.cards { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.level-card { display: flex; flex-direction: column; gap: 14px; transition: transform .18s, border-color .18s; }
+.level-card:hover { transform: translateY(-4px); border-color: var(--g-line); }
+.level-top { display: flex; align-items: center; gap: 12px; }
+.level-top h2 { flex: 1; }
+.level-card .ico { width: 46px; height: 46px; font-size: 20px; }
+.meter { display: inline-flex; gap: 4px; }
+.meter i { width: 16px; height: 6px; border-radius: 3px; background: var(--line); }
+.meter i.on { background: var(--g); }
+.desc { color: var(--muted); font-size: 14px; font-weight: 600; }
+.facts { display: grid; grid-template-columns: auto 1fr; gap: 8px 12px; font-size: 14px; margin: 0; padding-top: 14px; border-top: 1px dashed var(--line); align-items: center; }
+.facts dt { color: var(--muted); font-weight: 700; display: flex; align-items: center; gap: 8px; }
+.facts dt i { width: 16px; text-align: center; color: var(--g); }
+.facts dd { margin: 0; text-align: right; font-weight: 800; overflow-wrap: anywhere; }
+.level-card .btn { margin-top: auto; }
+.notice { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; border-color: var(--g-line); margin-bottom: 16px; }
+.notice p { color: var(--muted); font-size: 14px; margin-top: 2px; }
+.tip { display: flex; align-items: center; gap: 10px; margin-top: 18px; color: var(--muted); font-size: 14px; font-weight: 600; }
+.tip i { color: var(--gold); }
+
+/* ---------- Quiz ---------- */
+.quiz-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 14px; }
+.pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border: 1px solid var(--g-line); background: var(--g-soft); color: var(--g); border-radius: 999px; font-size: 14px; font-weight: 800; }
+.timerbox { display: inline-flex; align-items: center; gap: 10px; padding: 7px 16px; border: 1px solid var(--g-line); border-radius: 14px; background: var(--panel); color: var(--g); font-size: 22px; font-weight: 900; font-variant-numeric: tabular-nums; }
+.timerbox i { font-size: 18px; }
+.timerbox.low { color: var(--bad); border-color: var(--bad-line); animation: blink 1s steps(2, start) infinite; }
+@keyframes blink { 50% { opacity: .5; } }
+.progress { height: 12px; background: var(--line); border-radius: 999px; overflow: hidden; }
+.fill { height: 100%; background: var(--btn-bg); border-radius: 999px; transition: width .3s; }
+.progress-text { display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); font-weight: 700; margin: 8px 0 18px; }
+.q { font-size: 23px; font-weight: 800; margin-bottom: 16px; }
+.opt { display: flex; align-items: center; gap: 14px; width: 100%; text-align: left; background: var(--field); color: var(--text); border: 1.5px solid var(--line); padding: 13px 14px; margin-top: 10px; border-radius: 14px; font-weight: 700; transition: border-color .15s, background .15s, transform .12s; }
+.opt:hover { border-color: var(--g-line); background: var(--panel2); transform: translateX(3px); }
+.opt .key { flex: none; width: 30px; height: 30px; display: inline-flex; align-items: center; justify-content: center; border: 1.5px solid var(--line); border-radius: 9px; font-size: 13px; font-weight: 900; color: var(--muted); }
+.opt .txt { flex: 1; }
+.opt .tick { display: none; color: var(--g); font-size: 18px; }
+.opt.sel { border-color: var(--g); background: var(--g-soft); animation: pop .22s; }
+.opt.sel .key { background: var(--btn-bg); border-color: transparent; color: var(--btn-text); }
+.opt.sel .tick { display: inline; }
+@keyframes pop { 50% { transform: scale(1.015); } }
+.quiz-actions { display: flex; gap: 10px; flex-wrap: wrap; margin: 16px 0 22px; }
+.quiz-actions .spacer { flex: 1; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(42px, 1fr)); gap: 8px; }
+.grid button { background: var(--field); color: var(--muted); border: 1.5px solid var(--line); padding: 8px 0; border-radius: 10px; font-weight: 800; font-size: 14px; transition: border-color .15s, transform .12s; }
+.grid button:hover { border-color: var(--g-line); transform: translateY(-2px); }
+.grid button.done { border-color: var(--g-line); color: var(--g); background: var(--g-soft); }
+.grid button.cur { background: var(--btn-bg); color: var(--btn-text); border-color: transparent; }
+
+/* ---------- Results ---------- */
+.result-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+.score { display: flex; align-items: baseline; gap: 12px; font-size: 68px; font-weight: 900; color: var(--g); line-height: 1; margin: 18px 0 8px; letter-spacing: -0.03em; }
+.score i { font-size: 40px; color: var(--gold); align-self: center; }
+.score small { font-size: 26px; color: var(--muted); font-weight: 800; }
+.statrow { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 20px 0; }
+.statrow > div { display: flex; align-items: center; gap: 12px; border: 1px solid var(--line); background: var(--field); border-radius: 14px; padding: 12px 14px; }
+.statrow strong { display: block; font-size: 21px; line-height: 1.1; font-weight: 900; }
+.statrow span.t { font-size: 13px; color: var(--muted); font-weight: 700; }
+.rev { padding: 12px 14px; margin-top: 10px; border: 1px solid var(--line); border-left: 4px solid var(--line); border-radius: 12px; font-size: 14px; background: var(--field); font-weight: 600; }
+.rev.ok { border-left-color: var(--g); }
+.rev.no { border-left-color: var(--bad); }
+.rev strong { display: block; margin-bottom: 4px; font-weight: 800; }
+.good { color: var(--g); }
+.bad { color: var(--bad); }
+.confetti { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 20; }
+.conf { position: absolute; top: -24px; animation: fall 2.4s ease-in forwards; }
+@keyframes fall { to { transform: translateY(112vh) rotate(540deg); opacity: .85; } }
+
+/* ---------- Leaderboard ---------- */
+.row-tabs { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin: 16px 0; }
+.tabs { display: inline-grid; grid-auto-flow: column; gap: 4px; padding: 4px; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+.tabs .seg-btn { padding: 8px 14px; }
+.tablewrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 15px; }
+th, td { text-align: left; padding: 13px 10px; border-bottom: 1px solid var(--line); }
+th { color: var(--muted); font-size: 13px; font-weight: 800; }
+tbody tr:last-child td { border-bottom: none; }
+td.name { overflow-wrap: anywhere; font-weight: 800; }
+tr.me td { background: var(--g-soft); }
+.rank { display: inline-flex; align-items: center; justify-content: center; min-width: 32px; height: 32px; border-radius: 10px; font-weight: 900; font-size: 14px; border: 1px solid var(--line); color: var(--muted); }
+.rank.r1 { color: var(--gold); border-color: var(--gold); background: color-mix(in srgb, var(--gold) 14%, transparent); font-size: 16px; }
+.rank.r2 { color: var(--silver); border-color: var(--silver); background: color-mix(in srgb, var(--silver) 14%, transparent); font-size: 16px; }
+.rank.r3 { color: var(--bronze); border-color: var(--bronze); background: color-mix(in srgb, var(--bronze) 14%, transparent); font-size: 16px; }
+.streak { display: inline-flex; align-items: center; gap: 6px; font-weight: 800; }
+.streak i { color: var(--flame); }
+.streak.off i { color: var(--muted); }
+.empty { text-align: center; color: var(--muted); padding: 34px 10px; font-weight: 700; }
+.empty i { display: block; font-size: 34px; margin-bottom: 10px; color: var(--g); }
+
+/* ---------- Daily challenge card ---------- */
+.daily { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; border-color: var(--g-line); background: linear-gradient(135deg, var(--g-soft), var(--panel)); margin-bottom: 16px; }
+.daily .ico { width: 54px; height: 54px; font-size: 24px; }
+.daily > div { flex: 1; min-width: 220px; }
+.daily p { margin-top: 4px; font-size: 14px; font-weight: 600; }
+
+/* ---------- Badges ---------- */
+.badges { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); }
+.badge { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; padding: 18px; background: var(--panel); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); transition: transform .18s, border-color .18s; }
+.badge:hover { transform: translateY(-3px); }
+.badge h3 { margin: 4px 0 0; color: var(--text); font-size: 17px; }
+.badge p { font-size: 13.5px; color: var(--muted); font-weight: 600; }
+.bico { display: inline-flex; align-items: center; justify-content: center; flex: none; width: 62px; height: 62px; border-radius: 50%; font-size: 26px; background: var(--field); color: var(--muted); border: 2px solid var(--line); }
+.badge.on { border-color: var(--g-line); background: linear-gradient(160deg, var(--g-soft), var(--panel)); }
+.badge.on .bico, .newbadge .bico { background: var(--btn-bg); color: var(--btn-text); border-color: transparent; box-shadow: var(--btn-shadow); }
+.bprog { width: 100%; display: grid; gap: 5px; font-size: 12.5px; color: var(--muted); font-weight: 800; margin-top: auto; }
+.bprog .progress { height: 8px; }
+.newbadge { display: flex; align-items: center; gap: 16px; border-color: var(--g); margin-bottom: 12px; }
+.newbadge p { font-size: 14px; margin-top: 2px; }
+
+/* ---------- Footer, privacy page, danger button ---------- */
+.foot { max-width: 980px; margin: 0 auto; padding: 0 20px 40px; display: flex; flex-wrap: wrap; gap: 6px 16px; justify-content: center; align-items: center; color: var(--muted); font-size: 13px; font-weight: 700; }
+.foot i { color: var(--g); }
+.flink { background: none; border: none; color: var(--muted); text-decoration: underline; padding: 4px; font: inherit; font-weight: 700; cursor: pointer; }
+.flink:hover { color: var(--g); }
+.legal { max-width: 720px; margin: 0 auto; }
+.legal h2 { margin: 22px 0 8px; font-size: 18px; }
+.legal p, .legal li { font-weight: 600; }
+.legal ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+.btn.danger { background: transparent; color: var(--bad); border-color: var(--bad); box-shadow: none; }
+.btn.danger:hover { background: var(--bad-bg); filter: none; }
+
+/* ---------- Offline bar and install card ---------- */
+.netbar { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 9px 14px; background: var(--g-soft); color: var(--g); border-bottom: 1px solid var(--g-line); font-size: 14px; font-weight: 800; text-align: center; }
+.netbar[hidden] { display: none; }
+.install { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 18px; }
+.install > div { flex: 1; min-width: 200px; }
+.install h3 { margin: 0 0 2px; color: var(--text); font-size: 17px; }
+.install p { font-size: 14px; }
+
+/* ---------- Confirm dialog ---------- */
+#dlg { position: fixed; inset: 0; background: rgba(0,0,0,.7); display: flex; align-items: center; justify-content: center; z-index: 30; padding: 16px; }
+.dlgbox { background: var(--panel); border: 1px solid var(--g-line); border-radius: 18px; padding: 24px; max-width: 360px; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,.4); animation: pop .2s; }
+.dlgbox .ico { width: 52px; height: 52px; font-size: 22px; margin-bottom: 12px; }
+.dlgbox p { margin-bottom: 18px; font-weight: 700; }
+.dlgbox .actions { justify-content: center; }
+
+@media (max-width: 760px) {
+  .auth { grid-template-columns: 1fr; gap: 26px; min-height: 0; }
+  .hero h1 { font-size: 32px; }
+  h1 { font-size: 27px; }
+  .bar { padding: 9px 12px; }
+  .lbl { display: none; }
+  .who { display: none; }
+  .nav .btn.sm { padding: 9px 12px; }
+  .q { font-size: 19px; }
+  .score { font-size: 54px; }
+  .tabs .seg-btn { padding: 8px 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+<header id="topbar"></header>
+<div id="netbar" class="netbar" role="status" hidden></div>
+<main id="app"></main>
+<footer id="foot" class="foot"></footer>
+
+<script src="questions.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+/* Your Supabase details (the publishable key is meant to be public) */
+const SUPABASE_URL = 'https://cxdpdwbtxhlohidjtaxh.supabase.co';
+/* The email address shown on the privacy page for questions. Leave empty to hide it. */
+const CONTACT_EMAIL = '';
+/* Cloudflare Web Analytics token (counts visits, no cookies). Leave empty to turn analytics off. */
+const CF_ANALYTICS_TOKEN = '';
+const SUPABASE_KEY = 'sb_publishable_lJ-cE52lPUZUG6Mp7TfvAg_p1frzcbM';
+
+/* ---------- Setup ---------- */
+const LEVELS = ['easy', 'medium', 'advanced'];
+const LABEL = { easy: 'Easy', medium: 'Medium', advanced: 'Advanced', daily: 'Daily challenge' };
+const LVL_ICON = { easy: 'seedling', medium: 'bolt', advanced: 'rocket', daily: 'calendar-day' };
+const levelName = l => l === 'daily' ? 'Daily challenge' : LABEL[l] + ' level';
+const TOTAL = 40;
+const LIMIT = 20 * 60; // seconds
+const PER = { easy: 10, medium: 20, advanced: 30 }; // points per correct answer
+const DAILY = { count: { easy: 4, medium: 3, advanced: 3 }, limit: 5 * 60, maxBonus: 50 }; // the daily challenge
+
+const app = document.getElementById('app');
+const topbar = document.getElementById('topbar');
+
+/* localStorage holds only the quiz in progress, your last result and unsent scores */
+const mem = {};
+const db = {
+  get(k, d) {
+    try {
+      const v = localStorage.getItem(k);
+      if (v !== null) return JSON.parse(v);
+    } catch (e) {}
+    return k in mem ? mem[k] : d;
+  },
+  set(k, v) {
+    mem[k] = v;
+    try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {}
+  },
+  del(k) {
+    delete mem[k];
+    try { localStorage.removeItem(k); } catch (e) {}
+  }
+};
+
+let sb = null;          // Supabase client
+let user = null;        // username shown on the leaderboard
+let uid = null;         // account id
+let Q = null;           // quiz in progress
+let timerId = null;
+let onSubmit = null;
+let pendingYes = null;
+let recovering = false; // true while the person is resetting a password
+let boardToken = 0;
+
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const ic = n => '<i class="fa-solid fa-' + n + '" aria-hidden="true"></i>';
+const fmt = sec => String(Math.floor(sec / 60)).padStart(2, '0') + ':' + String(sec % 60).padStart(2, '0');
+const fmtLong = sec => Math.floor(sec / 60) + 'm ' + String(sec % 60).padStart(2, '0') + 's';
+const setText = (id, t) => { const e = document.getElementById(id); if (e) e.textContent = t; };
+const reduceMotion = () => window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+const localDay = () => {
+  const d = new Date();
+  return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+};
+
+function rnd(n) {
+  try { const a = new Uint32Array(1); crypto.getRandomValues(a); return a[0] % n; }
+  catch (e) { return Math.floor(Math.random() * n); }
+}
+
+function shuffle(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = rnd(i + 1);
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+/* ---------- Daily challenge ---------- */
+const utcDay = () => {
+  const d = new Date();
+  return d.getUTCFullYear() + '-' + String(d.getUTCMonth() + 1).padStart(2, '0') + '-' + String(d.getUTCDate()).padStart(2, '0');
+};
+const dailyRecord = () => { const r = db.get('br_daily_' + uid, null); return r && r.day === utcDay() ? r : null; };
+const dailyDone = () => !!dailyRecord();
+
+function untilMidnight() {
+  const d = new Date();
+  const ms = Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate() + 1) - d.getTime();
+  return Math.floor(ms / 3600000) + 'h ' + Math.floor(ms % 3600000 / 60000) + 'm';
+}
+
+/* a small seeded random generator, so every device gets the same shuffle for the same day */
+function hashStr(str) {
+  let h = 2166136261;
+  for (let i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); }
+  return h >>> 0;
+}
+function mulberry32(a) {
+  return function () {
+    a |= 0; a = a + 0x6D2B79F5 | 0;
+    let t = Math.imul(a ^ a >>> 15, 1 | a);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  };
+}
+function seededShuffle(arr, rng) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+function dailySet(day) {
+  const rng = mulberry32(hashStr('brain-rush:' + day));
+  const picks = [];
+  LEVELS.forEach(l => {
+    const pool = BANK[l].slice().sort((x, y) => x[0] < y[0] ? -1 : x[0] > y[0] ? 1 : 0); // same order on every device
+    seededShuffle(pool, rng).slice(0, DAILY.count[l]).forEach(r => picks.push({ r, l }));
+  });
+  return seededShuffle(picks, rng).map(({ r, l }) => ({ q: r[0], opts: seededShuffle(r.slice(1), rng), correct: r[1], p: PER[l] }));
+}
+
+function dailyCard() {
+  const active = db.get('br_quiz_' + uid, null);
+  const rec = dailyRecord();
+  const n = DAILY.count.easy + DAILY.count.medium + DAILY.count.advanced;
+  if (rec) {
+    return '<div class="card daily rise"><span class="ico">' + ic('circle-check') + '</span><div><h2>Daily challenge done</h2>' +
+      '<p class="muted">You scored ' + rec.points + ' points (' + rec.score + '/' + n + ' correct). The next one is ready in ' + untilMidnight() + '.</p></div>' +
+      '<button class="btn alt" data-board="daily">' + ic('trophy') + "Today's board</button></div>";
+  }
+  return '<div class="card daily rise"><span class="ico">' + ic('calendar-day') + '</span><div><h2>Daily challenge</h2>' +
+    '<p class="muted">' + n + ' questions, ' + (DAILY.limit / 60) + ' minutes, the same for everyone. Play every day to keep your streak going.</p></div>' +
+    '<button class="btn" data-start="daily"' + (active ? ' disabled' : '') + '>' + ic('play') + 'Play today</button></div>';
+}
+
+/* if you already played today on another device, show it here too */
+async function syncDaily() {
+  if (!sb || !navigator.onLine) return;
+  try {
+    const start = new Date();
+    start.setUTCHours(0, 0, 0, 0);
+    const { data } = await sb.from('scores').select('points,correct').eq('level', 'daily').gte('created_at', start.toISOString()).limit(1);
+    if (data && data.length) db.set('br_daily_' + uid, { day: utcDay(), points: data[0].points, score: data[0].correct });
+  } catch (e) {}
+  const slot = document.getElementById('daily-slot');
+  if (slot) slot.innerHTML = dailyCard();
+}
+
+/* ---------- Sounds (made in the browser, so no audio files are needed) ---------- */
+let soundOn = true;
+try { soundOn = localStorage.getItem('br_sound') !== 'off'; } catch (e) {}
+let audioCtx = null;
+
+function audio() {
+  if (!soundOn) return null;
+  try {
+    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    if (audioCtx.state === 'suspended') audioCtx.resume();
+    return audioCtx;
+  } catch (e) { return null; }
+}
+
+function tone(freq, start, dur, type, vol) {
+  const c = audio();
+  if (!c) return;
+  const t0 = c.currentTime + start;
+  const o = c.createOscillator(), g = c.createGain();
+  o.type = type || 'sine';
+  o.frequency.setValueAtTime(freq, t0);
+  g.gain.setValueAtTime(0.0001, t0);
+  g.gain.exponentialRampToValueAtTime(vol || 0.12, t0 + 0.012);
+  g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+  o.connect(g);
+  g.connect(c.destination);
+  o.start(t0);
+  o.stop(t0 + dur + 0.03);
+}
+
+const SOUNDS = {
+  tick:   () => tone(760, 0, 0.04, 'sine', 0.05),                                   // any button
+  nav:    () => tone(480, 0, 0.06, 'triangle', 0.08),                                // next / previous / jump
+  pick:   () => { tone(620, 0, 0.07, 'triangle', 0.11); tone(930, 0.06, 0.09, 'triangle', 0.09); }, // choose an answer
+  warn:   () => tone(540, 0, 0.1, 'square', 0.05),                                   // last 10 seconds
+  buzzer: () => { tone(200, 0, 0.35, 'sawtooth', 0.09); tone(150, 0.3, 0.45, 'sawtooth', 0.09); }, // time is up
+  win:    () => [523, 659, 784, 1047].forEach((f, i) => tone(f, i * 0.12, 0.24, 'triangle', 0.13)),
+  done:   () => [392, 349].forEach((f, i) => tone(f, i * 0.18, 0.3, 'triangle', 0.1)),
+  badge:  () => [784, 988, 1175, 1568].forEach((f, i) => tone(f, i * 0.09, 0.22, 'sine', 0.12))
+};
+function play(name) { try { if (soundOn && SOUNDS[name]) SOUNDS[name](); } catch (e) {} }
+
+function soundButton() {
+  return '<button class="btn ghost sm" data-sound-toggle="1" aria-label="' + (soundOn ? 'Mute sounds' : 'Turn sounds on') + '">' +
+    ic(soundOn ? 'volume-high' : 'volume-xmark') + '<span class="lbl">' + (soundOn ? 'Sound' : 'Muted') + '</span></button>';
+}
+function toggleSound() {
+  soundOn = !soundOn;
+  try { localStorage.setItem('br_sound', soundOn ? 'on' : 'off'); } catch (e) {}
+  const old = topbar.querySelector('[data-sound-toggle]');
+  if (old) old.outerHTML = soundButton();
+  if (soundOn) play('pick');
+}
+
+/* one small sound for every button press, with special sounds for answers and navigation */
+document.addEventListener('click', e => {
+  const b = e.target.closest('button');
+  if (!b || b.disabled || b.dataset.soundToggle || b.dataset.dlg === 'no') return;
+  if (b.dataset.opt !== undefined) play('pick');
+  else if (b.dataset.q !== undefined || b.dataset.act === 'prev' || b.dataset.act === 'next') play('nav');
+  else play('tick');
+}, true);
+
+/* ---------- Theme (dark / light) ---------- */
+const theme = () => document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+function themeButton() {
+  const light = theme() === 'light';
+  return '<button class="btn ghost sm" data-theme-toggle="1" aria-label="' + (light ? 'Switch to dark mode' : 'Switch to light mode') + '">' +
+    ic(light ? 'moon' : 'sun') + '<span class="lbl">' + (light ? 'Dark' : 'Light') + '</span></button>';
+}
+function toggleTheme() {
+  const next = theme() === 'light' ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', next);
+  try { localStorage.setItem('br_theme', next); } catch (e) {}
+  const old = topbar.querySelector('[data-theme-toggle]');
+  if (old) old.outerHTML = themeButton();
+}
+
+/* ---------- Navigation ---------- */
+function renderNav(cur) {
+  const item = (go, icon, label) => '<button class="btn alt sm' + (cur === go ? ' on' : '') + '" data-go="' + go + '" aria-label="' + label + '">' + ic(icon) + '<span class="lbl">' + label + '</span></button>';
+  topbar.innerHTML = '<div class="bar"><div class="brand"><span class="logo" aria-hidden="true"><i class="fa-solid fa-brain"></i></span>Brain Rush</div>' +
+    '<nav class="nav">' +
+    (user ? item('home', 'house', 'Home') + item('board', 'trophy', 'Leaderboard') + item('badges', 'award', 'Badges') + '<span class="who">' + ic('user') + esc(user) + '</span>' : '') +
+    soundButton() + themeButton() +
+    (user ? '<button class="btn ghost sm" data-go="logout" aria-label="Log out">' + ic('right-from-bracket') + '<span class="lbl">Log out</span></button>' : '') +
+    '</nav></div>';
+  renderFoot();
+}
+
+function route() {
+  clearInterval(timerId);
+  renderNav();
+  if (!user) return renderAuth('login');
+  if (db.get('br_quiz_' + uid, null)) return renderQuiz();
+  renderHome();
+}
+
+async function doLogout() {
+  clearInterval(timerId);
+  try { if (sb) await sb.auth.signOut(); } catch (err) {}
+  db.del('br_last');
+  user = null; uid = null; Q = null;
+  route();
+}
+
+topbar.addEventListener('click', e => {
+  const b = e.target.closest('button');
+  if (!b) return;
+  if (b.dataset.soundToggle) return toggleSound();
+  if (b.dataset.themeToggle) return toggleTheme();
+  clearInterval(timerId);
+  if (b.dataset.go === 'home') renderHome();
+  if (b.dataset.go === 'board') renderBoard('easy');
+  if (b.dataset.go === 'badges') renderBadges();
+  if (b.dataset.go === 'logout') doLogout();
+});
+
+/* ---------- Setup screen (only shown if the Supabase values are missing) ---------- */
+function renderSetup(problem) {
+  app.innerHTML = '<div class="card narrow-card"><h1>' + ic('gear') + ' Almost there</h1>' +
+    (problem ? '<p class="msg err">' + esc(problem) + '</p>' : '') +
+    '<p class="muted" style="margin:12px 0">Brain Rush needs a free Supabase project so scores and accounts are shared between everyone who plays.</p>' +
+    '<ol class="steps"><li>Create a project at supabase.com.</li>' +
+    '<li>Open <strong>SQL Editor</strong>, paste the contents of <span class="code">supabase-setup.sql</span> and press <strong>Run</strong>.</li>' +
+    '<li>Open <strong>Settings, then API Keys</strong>. Copy the <strong>Project URL</strong> and the <strong>Publishable key</strong>.</li>' +
+    '<li>Paste them into <span class="code">SUPABASE_URL</span> and <span class="code">SUPABASE_KEY</span> near the top of the script in this file.</li>' +
+    '<li>Save the file and refresh this page.</li></ol></div>';
+}
+
+/* ---------- Auth ---------- */
+const val = n => { const i = document.querySelector('#f [name="' + n + '"]'); return i ? i.value : ''; };
+
+function setMsg(text, ok) {
+  const m = document.getElementById('msg');
+  if (!m) return;
+  m.textContent = text || '';
+  m.className = 'msg ' + (ok ? 'ok' : 'err');
+}
+
+function busy(on) {
+  document.querySelectorAll('#f button').forEach(b => { b.disabled = on; });
+}
+
+function friendly(err) {
+  const m = (err && err.message) || 'Something went wrong. Try again.';
+  if (/invalid login/i.test(m)) return 'Wrong email or password.';
+  if (/not confirmed/i.test(m)) return 'Confirm your email first. Check your inbox for the link.';
+  if (/already registered/i.test(m)) return 'That email already has an account. Log in instead.';
+  if (/rate limit|too many|security purposes/i.test(m)) return 'Too many attempts. Wait a minute and try again.';
+  if (/database error saving new user/i.test(m)) return 'That username was just taken. Try another one.';
+  if (/failed to fetch|network/i.test(m)) return 'Could not reach the server. Check your internet connection.';
+  return m;
+}
+
+const field = (label, icon, name, type, ac) =>
+  '<label>' + label + '<span class="field">' + ic(icon) + '<input name="' + name + '" type="' + (type || 'text') + '" autocomplete="' + (ac || 'off') + '"></span></label>';
+
+function authShell(tab, inner) {
+  const seg = tab
+    ? '<div class="seg"><button type="button" class="seg-btn' + (tab === 'login' ? ' on' : '') + '" data-auth="login">' + ic('right-to-bracket') + 'Log in</button>' +
+      '<button type="button" class="seg-btn' + (tab === 'signup' ? ' on' : '') + '" data-auth="signup">' + ic('user-plus') + 'Sign up</button></div>'
+    : '';
+  const chip = (icon, n, t) => '<li class="chip"><span class="ico">' + ic(icon) + '</span><div><strong>' + n + '</strong><span class="t">' + t + '</span></div></li>';
+  app.innerHTML = '<div class="auth"><section class="hero rise"><div class="hero-art" aria-hidden="true"><span class="brain-big"><i class="fa-solid fa-brain"></i></span>' +
+    '<i class="fa-solid fa-bolt floaty f1"></i><i class="fa-solid fa-star floaty f2"></i><i class="fa-solid fa-lightbulb floaty f3"></i><i class="fa-solid fa-puzzle-piece floaty f4"></i></div>' +
+    '<h1>Train your brain.<br><span class="accent">Beat the clock.</span></h1>' +
+    '<p>Pick a level, answer 40 questions in 20 minutes and see where you rank against players everywhere.</p>' +
+    '<ul class="chips">' + chip('layer-group', '3', 'levels') + chip('circle-question', '40', 'questions each') + chip('stopwatch', '20', 'minute timer') + '</ul></section>' +
+    '<section class="card form-card rise" style="--i:2">' + seg + inner + '</section></div>';
+}
+
+function renderAuth(mode, note) {
+  clearInterval(timerId);
+  renderNav('');
+  onSubmit = null;
+  const msg = '<p id="msg" class="msg ' + (note && note.ok ? 'ok' : 'err') + '" role="alert">' + (note ? esc(note.t) : '') + '</p>';
+
+  if (mode === 'login') {
+    authShell('login',
+      '<h2>Welcome back</h2><p class="muted">Log in and keep climbing the board.</p>' + msg +
+      '<div id="f">' + field('Email', 'envelope', 'email', 'email', 'email') + field('Password', 'lock', 'pw', 'password', 'current-password') +
+      '<button class="btn block" type="button" data-submit="1">' + ic('right-to-bracket') + 'Log in</button></div>' +
+      '<div class="alt-actions"><button class="btn ghost block" type="button" data-auth="forgot">' + ic('key') + 'Forgot password?</button></div>');
+    onSubmit = async () => {
+      const email = val('email').trim();
+      if (!email || !val('pw')) return setMsg('Enter your email and password.');
+      busy(true);
+      const { error } = await sb.auth.signInWithPassword({ email, password: val('pw') });
+      if (error) { busy(false); return setMsg(friendly(error)); }
+      await enter();
+    };
+  }
+
+  if (mode === 'signup') {
+    authShell('signup',
+      '<h2>Create your account</h2><p class="muted">Free, and takes under a minute.</p>' + msg +
+      '<div id="f">' + field('Username (at least 3 characters)', 'user', 'username', 'text', 'username') +
+      field('Email', 'envelope', 'email', 'email', 'email') +
+      field('Password (6 characters or more)', 'lock', 'pw', 'password', 'new-password') +
+      field('Confirm password', 'shield-halved', 'pw2', 'password', 'new-password') +
+      '<button class="btn block" type="button" data-submit="1">' + ic('user-plus') + 'Create account</button></div>' +
+      '<p class="muted" style="margin-top:12px;font-size:13px;font-weight:600">By signing up you agree to the <button class="flink" type="button" data-go="privacy">privacy policy</button>.</p>');
+    onSubmit = async () => {
+      const username = val('username').trim();
+      const email = val('email').trim();
+      if (username.length < 3) return setMsg('Username must be at least 3 characters.');
+      if (!/^\S+@\S+\.\S+$/.test(email)) return setMsg('Enter a valid email address.');
+      if (val('pw').length < 6) return setMsg('Password must be at least 6 characters.');
+      if (val('pw') !== val('pw2')) return setMsg('Passwords do not match.');
+      busy(true);
+      const chk = await sb.rpc('username_taken', { p_username: username });
+      if (chk.error) { busy(false); return setMsg(friendly(chk.error)); }
+      if (chk.data) { busy(false); return setMsg('That username is taken. Pick another one.'); }
+      const { data, error } = await sb.auth.signUp({
+        email, password: val('pw'),
+        options: { data: { username }, emailRedirectTo: location.origin + location.pathname }
+      });
+      if (error) { busy(false); return setMsg(friendly(error)); }
+      if (data.user && data.user.identities && data.user.identities.length === 0) {
+        busy(false);
+        return setMsg('That email already has an account. Log in instead.');
+      }
+      if (data.session) return enter();
+      renderAuth('login', { ok: true, t: 'Account created. Check your email to confirm it, then log in.' });
+    };
+  }
+
+  if (mode === 'forgot') {
+    authShell('',
+      '<h2>Forgot password</h2><p class="muted">Enter your email and we will send you a reset link.</p>' + msg +
+      '<div id="f" style="margin-top:16px">' + field('Email', 'envelope', 'email', 'email', 'email') +
+      '<button class="btn block" type="button" data-submit="1">' + ic('paper-plane') + 'Send reset link</button></div>' +
+      '<div class="alt-actions"><button class="btn ghost block" type="button" data-auth="login">' + ic('arrow-left') + 'Back to log in</button></div>');
+    onSubmit = async () => {
+      const email = val('email').trim();
+      if (!/^\S+@\S+\.\S+$/.test(email)) return setMsg('Enter a valid email address.');
+      if (location.protocol === 'file:') return setMsg('Reset links only work once the site is hosted online.');
+      busy(true);
+      const { error } = await sb.auth.resetPasswordForEmail(email, { redirectTo: location.origin + location.pathname });
+      busy(false);
+      if (error) return setMsg(friendly(error));
+      setMsg('If an account uses that email, a reset link is on its way. Open it on this device.', true);
+    };
+  }
+}
+
+function renderRecovery() {
+  clearInterval(timerId);
+  renderNav('');
+  authShell('',
+    '<h2>Set a new password</h2><p class="muted">Choose a new password for your account.</p><p id="msg" class="msg err" role="alert"></p>' +
+    '<div id="f">' + field('New password (6 characters or more)', 'lock', 'pw', 'password', 'new-password') +
+    field('Confirm new password', 'shield-halved', 'pw2', 'password', 'new-password') +
+    '<button class="btn block" type="button" data-submit="1">' + ic('floppy-disk') + 'Save new password</button></div>');
+  onSubmit = async () => {
+    if (val('pw').length < 6) return setMsg('Password must be at least 6 characters.');
+    if (val('pw') !== val('pw2')) return setMsg('Passwords do not match.');
+    busy(true);
+    const { error } = await sb.auth.updateUser({ password: val('pw') });
+    if (error) { busy(false); return setMsg(friendly(error)); }
+    recovering = false;
+    history.replaceState(null, '', location.pathname + location.search);
+    await enter();
+  };
+}
+
+/* After a successful login: load the profile, send any unsent scores, open the app.
+   Offline, the last signed-in player can keep playing; scores upload when the internet is back. */
+function startOffline(c) {
+  uid = c.uid;
+  user = c.username;
+  route();
+}
+
+async function enter() {
+  let session = null;
+  if (sb) {
+    try { const r = await sb.auth.getSession(); session = r && r.data ? r.data.session : null; } catch (e) {}
+  }
+  if (!session) {
+    const c = db.get('br_last', null);
+    if (c && !navigator.onLine) return startOffline(c);
+    user = null; uid = null;
+    return renderAuth('login', navigator.onLine ? undefined : { t: "You're offline. Log in once with internet, then you can play offline." });
+  }
+  uid = session.user.id;
+  let name = null;
+  try {
+    const { data } = await sb.from('profiles').select('username').eq('id', uid).maybeSingle();
+    if (data) name = data.username;
+  } catch (e) {}
+  if (!name) {
+    const c = db.get('br_last', null);
+    if (c && c.uid === uid) name = c.username;
+  }
+  if (!name) {
+    user = null;
+    renderNav('');
+    app.innerHTML = '<div class="card narrow-card"><h2>' + ic('triangle-exclamation') + ' Could not load your profile</h2><p class="muted" style="margin:10px 0 16px">Check your connection and try again. If it keeps happening, make sure the SQL setup was run in Supabase.</p>' +
+      '<div class="actions"><button class="btn" data-retry="1">' + ic('rotate-right') + 'Try again</button><button class="btn ghost" data-go="logout">' + ic('right-from-bracket') + 'Log out</button></div></div>';
+    return;
+  }
+  user = name;
+  db.set('br_last', { uid, username: name });
+  flushPending();
+  route();
+}
+
+/* ---------- Scores and leaderboard (stored online) ---------- */
+async function lb(level, limit, period) {
+  if (!sb || !navigator.onLine) throw new Error('offline');
+  const { data, error } = await sb.rpc('leaderboard', { p_level: level, p_limit: limit || 20, p_period: period || 'all' });
+  if (error) throw error;
+  return data || [];
+}
+
+async function saveScore(row) {
+  try {
+    const { error } = await sb.from('scores').insert(row);
+    if (!error) return true;
+  } catch (e) {}
+  const key = 'br_pending_' + uid;
+  const list = db.get(key, []);
+  list.push(row);
+  db.set(key, list);
+  return false;
+}
+
+async function flushPending() {
+  const key = 'br_pending_' + uid;
+  const list = db.get(key, []);
+  if (!list.length || !sb) return;
+  const keep = [];
+  for (let i = 0; i < list.length; i++) {
+    try {
+      const { error } = await sb.from('scores').insert(list[i]);
+      if (error && error.code !== '23514' && error.code !== '23505') { keep.push(...list.slice(i)); break; } // keep on network errors, drop rows the server rejects
+    } catch (e) { keep.push(...list.slice(i)); break; }
+  }
+  if (keep.length) db.set(key, keep); else db.del(key);
+}
+
+/* ---------- Home ---------- */
+function renderHome() {
+  clearInterval(timerId);
+  renderNav('home');
+  const active = db.get('br_quiz_' + uid, null);
+  const last = db.get('br_result_' + uid, null);
+  const DESC = {
+    easy: 'Simple general knowledge to warm up.',
+    medium: 'Science, history, geography and more.',
+    advanced: 'Tougher questions in science, history, maths and tech.'
+  };
+
+  let html = '<div class="page-head split rise"><div><h1>Ready to rush, ' + esc(user) + '?</h1>' +
+    '<p class="muted">Pick a level. Each quiz has ' + TOTAL + ' questions and a 20 minute timer, shuffled every time you play.</p></div>' +
+    '<ul class="chips"><li class="chip"><span class="ico">' + ic('coins') + '</span><div><strong id="h-total">...</strong><span class="t">total points</span></div></li>' +
+    '<li class="chip"><span class="ico fire">' + ic('fire') + '</span><div><strong id="h-streak">...</strong><span class="t">day streak</span></div></li>' +
+    '<li class="chip"><span class="ico">' + ic('calendar-week') + '</span><div><strong id="h-week">...</strong><span class="t">this week</span></div></li>' +
+    '<li class="chip"><span class="ico">' + ic('award') + '</span><div><strong id="h-badges">...</strong><span class="t">badges</span></div></li></ul></div>' +
+    '<p id="h-err" class="msg err" role="alert"></p><p id="h-badge-note" class="msg ok" role="status"></p>';
+
+  if (active) {
+    html += '<div class="card notice rise"><div><h2>' + ic('hourglass-half') + ' Quiz in progress</h2><p>' + levelName(active.level) + '. The timer is still running.</p></div>' +
+      '<div class="actions"><button class="btn" data-resume="1">' + ic('play') + 'Resume quiz</button>' +
+      '<button class="btn alt" data-discard="1">' + ic('trash') + 'Discard</button></div></div>';
+  }
+
+  html += '<div id="daily-slot">' + dailyCard() + '</div>';
+
+  html += '<div class="cards">' + LEVELS.map((l, n) => {
+    const meter = '<span class="meter" role="img" aria-label="Difficulty ' + (n + 1) + ' of 3">' +
+      [1, 2, 3].map(k => '<i' + (k <= n + 1 ? ' class="on"' : '') + '></i>').join('') + '</span>';
+    return '<div class="card level-card rise" style="--i:' + (n + 1) + '"><div class="level-top"><span class="ico">' + ic(LVL_ICON[l]) + '</span><h2>' + LABEL[l] + '</h2>' + meter + '</div>' +
+      '<p class="desc">' + DESC[l] + '</p>' +
+      '<dl class="facts"><dt>' + ic('circle-question') + 'Questions</dt><dd>' + TOTAL + '</dd><dt>' + ic('clock') + 'Time</dt><dd>20 minutes</dd>' +
+      '<dt>' + ic('gem') + 'Reward</dt><dd>' + PER[l] + ' pts per answer</dd>' +
+      '<dt>' + ic('crown') + 'Leader</dt><dd id="lead-' + l + '">...</dd>' +
+      '<dt>' + ic('star') + 'Your points</dt><dd id="mine-' + l + '">...</dd></dl>' +
+      '<button class="btn block" data-start="' + l + '"' + (active ? ' disabled' : '') + '>' + ic('play') + 'Start ' + LABEL[l] + '</button></div>';
+  }).join('') + '</div>' +
+  '<p class="tip">' + ic('bolt') + 'Finish faster and earn a speed bonus of up to 100 points, scaled by how many answers you got right.</p><div id="install-slot"></div>';
+
+  if (last) html += '<div class="actions" style="margin-top:20px"><button class="btn alt" data-result="1">' + ic('clock-rotate-left') + 'View last result (' + LABEL[last.level] + ', ' + last.points + ' pts)</button></div>';
+  app.innerHTML = html;
+  fillInstall();
+  syncDaily();
+  loadHome();
+  loadBadgeChip();
+}
+
+async function loadHome() {
+  try {
+    const all = await Promise.all([lb(null, 1000)].concat(LEVELS.map(l => lb(l, 1000))).concat([lb(null, 1000, 'week')]));
+    const me = all[0].find(x => x.username === user);
+    setText('h-total', me ? me.total_points : 0);
+    setText('h-streak', me ? me.streak : 0);
+    const wk = all[4].find(x => x.username === user);
+    setText('h-week', wk ? wk.total_points : 0);
+    LEVELS.forEach((l, i) => {
+      const rows = all[i + 1];
+      const mine = rows.find(x => x.username === user);
+      setText('lead-' + l, rows[0] ? rows[0].username + ' (' + rows[0].total_points + ')' : 'No scores yet');
+      setText('mine-' + l, mine ? mine.total_points + ' pts' : 'Not played');
+    });
+  } catch (e) {
+    setText('h-err', navigator.onLine ? 'Could not load the leaderboard. Check your connection and refresh.' : "You're offline. You can still play. Connect to the internet to see the leaderboard.");
+    ['h-total', 'h-streak', 'h-week'].forEach(id => setText(id, '-'));
+    LEVELS.forEach(l => { setText('lead-' + l, '-'); setText('mine-' + l, '-'); });
+  }
+}
+
+/* ---------- Quiz ---------- */
+function startQuiz(level) {
+  let qs, limit = LIMIT, maxBonus = 100;
+  if (level === 'daily') {
+    if (dailyDone()) return renderHome();
+    qs = dailySet(utcDay());
+    limit = DAILY.limit;
+    maxBonus = DAILY.maxBonus;
+  } else {
+    qs = shuffle(BANK[level]).slice(0, TOTAL).map(r => ({ q: r[0], opts: shuffle(r.slice(1)), correct: r[1], p: PER[level] }));
+  }
+  const now = Date.now();
+  Q = { level, qs, answers: Array(qs.length).fill(null), cur: 0, start: now, end: now + limit * 1000, limit, maxBonus };
+  saveQ();
+  renderQuiz();
+}
+
+function saveQ() { if (Q && uid) db.set('br_quiz_' + uid, Q); }
+
+function tick() {
+  if (!Q) { clearInterval(timerId); return; }
+  const left = Math.max(0, Math.ceil((Q.end - Date.now()) / 1000));
+  const t = document.getElementById('timer');
+  if (t) {
+    t.textContent = fmt(left);
+    t.parentElement.classList.toggle('low', left <= 60);
+  }
+  if (left <= 10 && left > 0) play('warn');
+  if (left <= 0) finish(true);
+}
+
+function renderQuiz() {
+  renderNav('');
+  Q = db.get('br_quiz_' + uid, null);
+  if (!Q) return renderHome();
+  const i = Q.cur, item = Q.qs[i], n = Q.qs.length;
+  const answered = Q.answers.filter(a => a !== null).length;
+  const pct = Math.round((i + 1) / n * 100);
+
+  app.innerHTML =
+    '<div class="quiz-head"><span class="pill">' + ic(LVL_ICON[Q.level]) + levelName(Q.level) + '</span><span class="timerbox">' + ic('stopwatch') + '<span id="timer" aria-live="off"></span></span></div>' +
+    '<div class="progress" role="progressbar" aria-label="Quiz progress" aria-valuemin="1" aria-valuemax="' + n + '" aria-valuenow="' + (i + 1) + '"><div class="fill" style="width:' + pct + '%"></div></div>' +
+    '<div class="progress-text"><span>Question ' + (i + 1) + ' of ' + n + '</span><span>' + ic('circle-check') + ' ' + answered + ' answered</span></div>' +
+    '<div class="card"><h2 class="q">' + (i + 1) + '. ' + esc(item.q) + '</h2>' +
+      item.opts.map((o, k) => '<button class="opt' + (Q.answers[i] === k ? ' sel' : '') + '" data-opt="' + k + '"><span class="key">' +
+        String.fromCharCode(65 + k) + '</span><span class="txt">' + esc(o) + '</span>' + '<i class="fa-solid fa-circle-check tick" aria-hidden="true"></i>' + '</button>').join('') + '</div>' +
+    '<div class="quiz-actions"><button class="btn alt" data-act="prev"' + (i === 0 ? ' disabled' : '') + '>' + ic('arrow-left') + 'Previous</button>' +
+      '<button class="btn alt" data-act="next"' + (i === n - 1 ? ' disabled' : '') + '>Next' + ic('arrow-right') + '</button>' +
+      '<span class="spacer"></span><button class="btn" data-act="submit">' + ic('paper-plane') + 'Submit</button></div>' +
+    '<div class="card"><h3>' + ic('grip') + ' Jump to a question</h3><div class="grid">' +
+      Q.qs.map((_, k) => '<button class="' + (k === i ? 'cur' : (Q.answers[k] !== null ? 'done' : '')) + '" data-q="' + k + '">' + (k + 1) + '</button>').join('') + '</div></div>';
+
+  clearInterval(timerId);
+  timerId = setInterval(tick, 1000);
+  tick();
+}
+
+function setSave(text, ok) {
+  const m = document.getElementById('savemsg');
+  if (!m) return;
+  m.textContent = text;
+  m.className = 'msg ' + (ok ? 'ok' : 'err');
+}
+
+async function finish(auto) {
+  clearInterval(timerId);
+  const dl = document.getElementById('dlg');
+  if (dl) dl.remove();
+  if (!Q) return;
+  const s = Q;
+  Q = null;                       // stops a second submit
+  db.del('br_quiz_' + uid);
+  const lim = s.limit || LIMIT, n = s.qs.length, maxB = s.maxBonus != null ? s.maxBonus : 100;
+  const isRight = (q, i) => s.answers[i] !== null && q.opts[s.answers[i]] === q.correct;
+  const score = s.qs.reduce((c, q, i) => c + (isRight(q, i) ? 1 : 0), 0);
+  const time = Math.max(1, Math.min(lim, Math.round((Math.min(Date.now(), s.end) - s.start) / 1000)));
+  const base = s.qs.reduce((sum, q, i) => sum + (isRight(q, i) ? (q.p || PER[s.level]) : 0), 0);
+  const bonus = Math.round((lim - time) / lim * maxB * score / n);
+  const points = base + bonus;
+  const result = {
+    level: s.level, score, total: n, time, points, base, bonus, per: s.level === 'daily' ? null : PER[s.level],
+    auto: !!auto, date: new Date().toLocaleDateString(),
+    review: s.qs.map((q, i) => ({ q: q.q, correct: q.correct, chosen: s.answers[i] === null ? null : q.opts[s.answers[i]] }))
+  };
+  db.set('br_result_' + uid, result);
+  if (s.level === 'daily') db.set('br_daily_' + uid, { day: utcDay(), points, score });
+  if (auto) play('buzzer');
+  renderResult(result, true);
+  setSave('Saving your score...', true);
+  const ok = await saveScore({ level: s.level, correct: score, total: n, points, time_seconds: time, play_day: localDay() });
+  setSave(ok ? 'Your score was saved to the leaderboard.' : 'Could not save your score right now. It will be sent the next time you open the site online.', ok);
+  loadRank(s.level);
+  try { const r = await refreshBadges(); showNewBadges(r.fresh); } catch (e) {}
+}
+
+/* ---------- Results ---------- */
+async function loadRank(level) {
+  try {
+    const rows = await lb(level, 1000, level === 'daily' ? 'day' : 'all');
+    const i = rows.findIndex(x => x.username === user);
+    setText('rank', i >= 0 ? '#' + (i + 1) : '-');
+  } catch (e) { setText('rank', '-'); }
+}
+
+function countUp(id, to) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  if (reduceMotion() || to === 0) { el.textContent = to; return; }
+  const t0 = performance.now(), dur = 800;
+  const step = now => {
+    const k = Math.min(1, (now - t0) / dur);
+    el.textContent = Math.round(to * (1 - Math.pow(1 - k, 3)));
+    if (k < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+
+function confetti() {
+  if (reduceMotion()) return;
+  const wrap = document.createElement('div');
+  wrap.className = 'confetti';
+  wrap.setAttribute('aria-hidden', 'true');
+  const cols = ['#22c55e', '#a3e635', '#facc15', '#4ade80', '#86efac'];
+  for (let i = 0; i < 44; i++) {
+    const p = document.createElement('i');
+    p.className = 'fa-solid ' + (i % 3 === 0 ? 'fa-star' : 'fa-circle') + ' conf';
+    p.style.left = rnd(100) + 'vw';
+    p.style.color = cols[rnd(cols.length)];
+    p.style.fontSize = (8 + rnd(12)) + 'px';
+    p.style.animationDelay = (rnd(70) / 100) + 's';
+    wrap.appendChild(p);
+  }
+  document.body.appendChild(wrap);
+  setTimeout(() => wrap.remove(), 3400);
+}
+
+function renderResult(r, fresh) {
+  clearInterval(timerId);
+  renderNav('');
+  const pct = Math.round(r.score / r.total * 100);
+  const note = r.level === 'daily' ? (pct >= 80 ? 'Excellent work! See you tomorrow.' : 'Come back tomorrow for a new challenge.')
+    : pct >= 80 ? 'Excellent work!' : pct >= 50 ? 'Good effort. Try again to beat your score.' : 'Keep practicing. You can retry this level anytime.';
+  const headIcon = pct >= 80 ? 'trophy' : pct >= 50 ? 'thumbs-up' : 'dumbbell';
+  const breakdown = r.per ? r.score + ' correct × ' + r.per + ' points = ' + (r.score * r.per) + ', plus ' + r.bonus + ' speed bonus'
+    : r.score + ' correct = ' + r.base + ' points, plus ' + r.bonus + ' speed bonus';
+  const stat = (icon, big, small, id) => '<div><span class="ico">' + ic(icon) + '</span><div><strong' + (id ? ' id="' + id + '"' : '') + '>' + big + '</strong><span class="t">' + small + '</span></div></div>';
+
+  app.innerHTML =
+    (r.auto ? '<p class="msg err">Time is up. Your quiz was submitted automatically.</p>' : '') +
+    '<p id="savemsg" class="msg ok" role="status"></p>' +
+    '<div id="badge-slot"></div>' +
+    '<div class="card rise"><div class="result-head"><h1>' + ic(headIcon) + ' Your results</h1><span class="pill">' + ic(LVL_ICON[r.level]) + levelName(r.level) + '</span></div>' +
+    '<p class="score">' + ic('coins') + '<span id="score-num">' + r.points + '</span><small>points</small></p><p class="muted">' + breakdown + '. ' + note + '</p>' +
+    '<div class="statrow">' + stat('bullseye', r.score + ' / ' + r.total, 'correct (' + pct + '%)') +
+      stat('hourglass-half', fmtLong(r.time), 'time taken') + stat('ranking-star', '...', r.level === 'daily' ? "today's rank" : 'your rank on ' + LABEL[r.level], 'rank') + '</div>' +
+    '<div class="actions">' + (r.level === 'daily' ? '' : '<button class="btn" data-start="' + r.level + '">' + ic('rotate-right') + 'Retry ' + LABEL[r.level] + '</button>') +
+    '<button class="btn alt" data-board="' + r.level + '">' + ic('trophy') + 'Leaderboard</button>' +
+    '<button class="btn ghost" data-go="home">' + ic('house') + 'Home</button></div></div>' +
+    '<div class="card" style="margin-top:16px"><h2 style="margin-bottom:6px">' + ic('list-check') + ' Review your answers</h2>' +
+    r.review.map((x, i) => {
+      const ok = x.chosen === x.correct;
+      return '<div class="rev ' + (ok ? 'ok' : 'no') + '"><strong>' + (i + 1) + '. ' + esc(x.q) + '</strong>' +
+        (ok ? '<span class="good">' + ic('circle-check') + ' Your answer: ' + esc(x.chosen) + '</span>'
+            : '<span class="bad">' + ic(x.chosen === null ? 'circle-minus' : 'circle-xmark') + ' Your answer: ' + (x.chosen === null ? 'not answered' : esc(x.chosen)) + '</span><br><span class="good">' + ic('circle-check') + ' Correct answer: ' + esc(x.correct) + '</span>') +
+        '</div>';
+    }).join('') + '</div>';
+  loadRank(r.level);
+  if (fresh) {
+    countUp('score-num', r.points);
+    if (pct >= 60) confetti();
+    if (!r.auto) play(pct >= 60 ? 'win' : 'done');
+  }
+}
+
+/* ---------- Leaderboard ---------- */
+/* ---------- Privacy policy, footer and delete account ---------- */
+function renderFoot() {
+  const f = document.getElementById('foot');
+  if (!f) return;
+  f.innerHTML = '<span>' + ic('brain') + ' Brain Rush</span><button class="flink" type="button" data-go="privacy">Privacy policy</button>' +
+    (user ? '<button class="flink" type="button" data-go="delete">Delete my account</button>' : '');
+}
+
+function renderPrivacy() {
+  clearInterval(timerId);
+  renderNav('');
+  const back = user
+    ? '<button class="btn ghost" data-go="home">' + ic('arrow-left') + 'Back to the app</button>'
+    : '<button class="btn ghost" data-auth="login">' + ic('arrow-left') + 'Back to log in</button>';
+  const contact = CONTACT_EMAIL ? '<h2>Questions</h2><p>Email us at ' + esc(CONTACT_EMAIL) + '.</p>' : '';
+  app.innerHTML = '<div class="card legal rise"><h1>' + ic('shield-halved') + ' Privacy policy</h1><p class="muted">Last updated: 13 October 2026</p>' +
+    '<h2>What we collect</h2><ul>' +
+      '<li>Your email address and password. Your password is stored in scrambled form, so nobody, including us, can read it.</li>' +
+      '<li>The username you choose.</li>' +
+      '<li>Your quiz results: the level, your score, points, time taken and the date.</li>' +
+      '<li>On your own device: your quiz in progress, your last result, and your theme and sound choices. These stay in your browser.</li></ul>' +
+    '<h2>How we use it</h2><ul>' +
+      '<li>To create and protect your account, and to send password reset emails.</li>' +
+      '<li>To show leaderboards and to work out your streaks and badges.</li></ul>' +
+    '<h2>Who can see it</h2><ul>' +
+      '<li>Your username, points and streak are shown to other players on the leaderboard.</li>' +
+      '<li>Your email address is never shown to other players.</li>' +
+      '<li>We do not sell your data or show ads.</li></ul>' +
+    '<h2>Where it is kept</h2><p>Accounts and scores are stored with Supabase, a database service. To load fonts, icons and code, your browser also contacts Google Fonts, Cloudflare (cdnjs) and jsDelivr, which can see your IP address when you open the site.</p>' +
+    (CF_ANALYTICS_TOKEN ? '<h2>Visitor counts</h2><p>We use Cloudflare Web Analytics to count visits. It does not use cookies and does not track individual visitors. It records anonymous details such as the page viewed, the country and how fast the page loaded.</p>' : '') +
+    '<h2>How long we keep it</h2><p>Until you delete your account.</p>' +
+    '<h2>Your choices</h2><p>You can delete your account at any time using the Delete my account link at the bottom of the page. This permanently removes your account, scores, streak and badges.</p>' +
+    '<h2>Children</h2><p>Brain Rush is not meant for children under 13. If you are under 13, please ask a parent or guardian before using it.</p>' +
+    '<h2>Changes</h2><p>If we change this policy, the date at the top will change.</p>' + contact +
+    '<div class="actions" style="margin-top:20px">' + back + '</div></div>';
+}
+
+function renderDelete() {
+  clearInterval(timerId);
+  if (!user) return renderAuth('login');
+  renderNav('');
+  app.innerHTML = '<div class="card narrow-card rise"><h1>' + ic('triangle-exclamation') + ' Delete account</h1>' +
+    '<p class="muted" style="margin:10px 0">This permanently deletes your account, scores, streak and badges, and removes you from the leaderboard. It cannot be undone.</p>' +
+    '<p id="msg" class="msg err" role="alert"></p>' +
+    '<div id="f"><label>Type DELETE to confirm<span class="field">' + ic('trash') + '<input name="confirm" autocomplete="off"></span></label>' +
+    '<button class="btn danger block" type="button" data-submit="1">' + ic('trash') + 'Delete my account forever</button></div>' +
+    '<div class="alt-actions"><button class="btn ghost block" type="button" data-go="home">' + ic('arrow-left') + 'Keep my account</button></div></div>';
+  onSubmit = async () => {
+    if (val('confirm').trim() !== 'DELETE') return setMsg('Type DELETE in capital letters to confirm.');
+    if (!sb || !navigator.onLine) return setMsg('You need an internet connection to delete your account.');
+    busy(true);
+    const { error } = await sb.rpc('delete_my_account');
+    if (error) {
+      busy(false);
+      return setMsg(/does not exist|schema cache|could not find/i.test(error.message || '') ? 'Account deletion is not set up yet. Run the delete-account SQL in Supabase first.' : friendly(error));
+    }
+    ['br_quiz_', 'br_result_', 'br_daily_', 'br_badges_', 'br_pending_'].forEach(p => db.del(p + uid)); // wipe this player's data from the device
+    db.del('br_last');
+    try { await sb.auth.signOut(); } catch (e) {}
+    user = null; uid = null; Q = null;
+    renderAuth('login', { ok: true, t: 'Your account has been deleted.' });
+  };
+}
+
+document.getElementById('foot').addEventListener('click', e => {
+  const b = e.target.closest('button');
+  if (!b) return;
+  clearInterval(timerId);
+  if (b.dataset.go === 'privacy') renderPrivacy();
+  if (b.dataset.go === 'delete') renderDelete();
+});
+
+/* ---------- Badges ---------- */
+const BADGES = [
+  { id: 'first',    name: 'First steps',     icon: 'shoe-prints',       desc: 'Finish your first quiz.',                   need: 1,    have: s => s.quizzes },
+  { id: 'ten',      name: 'Regular',         icon: 'repeat',            desc: 'Finish 10 quizzes.',                        need: 10,   have: s => s.quizzes },
+  { id: 'fifty',    name: 'Dedicated',       icon: 'award',             desc: 'Finish 50 quizzes.',                        need: 50,   have: s => s.quizzes },
+  { id: 'sharp',    name: 'Sharp mind',      icon: 'brain',             desc: 'Get 90% or more in a quiz.',                need: 1,    have: s => s.sharp },
+  { id: 'perfect',  name: 'Perfectionist',   icon: 'star',              desc: 'Answer every question right in a quiz.',    need: 1,    have: s => s.perfect },
+  { id: 'speed',    name: 'Speedster',       icon: 'bolt',              desc: 'Get 80% or more using half the time or less.', need: 1, have: s => s.speed },
+  { id: 'rounder',  name: 'All-rounder',     icon: 'layer-group',       desc: 'Play Easy, Medium and Advanced.',           need: 3,    have: s => s.levels },
+  { id: 'ace',      name: 'Advanced ace',    icon: 'rocket',            desc: 'Get 30 or more right on Advanced.',         need: 30,   have: s => s.advBest },
+  { id: 'daily1',   name: 'Daily starter',   icon: 'calendar-day',      desc: 'Finish a daily challenge.',                 need: 1,    have: s => s.dailies },
+  { id: 'daily5',   name: 'Daily habit',     icon: 'calendar-check',    desc: 'Finish 5 daily challenges.',                need: 5,    have: s => s.dailies },
+  { id: 'streak3',  name: 'On a roll',       icon: 'fire',              desc: 'Play 3 days in a row.',                     need: 3,    have: s => s.bestStreak },
+  { id: 'streak7',  name: 'Week warrior',    icon: 'fire-flame-curved', desc: 'Play 7 days in a row.',                     need: 7,    have: s => s.bestStreak },
+  { id: 'streak30', name: 'Unstoppable',     icon: 'crown',             desc: 'Play 30 days in a row.',                    need: 30,   have: s => s.bestStreak },
+  { id: 'pts1k',    name: 'Point collector', icon: 'coins',             desc: 'Earn 1,000 points in total.',               need: 1000, have: s => s.points },
+  { id: 'pts5k',    name: 'High roller',     icon: 'gem',               desc: 'Earn 5,000 points in total.',               need: 5000, have: s => s.points }
+];
+
+/* everything below is worked out from the player's own finished quizzes */
+function badgeStats(rows) {
+  const st = { quizzes: rows.length, sharp: 0, perfect: 0, speed: 0, levels: 0, advBest: 0, dailies: 0, bestStreak: 0, points: 0 };
+  const lv = new Set(), days = new Set();
+  rows.forEach(r => {
+    st.points += r.points || 0;
+    if (r.play_day) days.add(r.play_day);
+    const pct = r.total ? r.correct / r.total : 0;
+    if (pct >= 0.9) st.sharp = 1;
+    if (r.total && r.correct === r.total) st.perfect = 1;
+    const lim = r.level === 'daily' ? DAILY.limit : LIMIT;
+    if (pct >= 0.8 && r.time_seconds <= lim / 2) st.speed = 1;
+    if (r.level === 'daily') st.dailies++; else lv.add(r.level);
+    if (r.level === 'advanced') st.advBest = Math.max(st.advBest, r.correct);
+  });
+  st.levels = lv.size;
+  const list = Array.from(days).sort();
+  let run = 0, prev = null;
+  list.forEach(d => {
+    const t = Date.parse(d + 'T00:00:00Z');
+    run = prev !== null && t - prev === 86400000 ? run + 1 : 1;
+    prev = t;
+    if (run > st.bestStreak) st.bestStreak = run;
+  });
+  return st;
+}
+
+async function fetchMyScores() {
+  if (!sb || !navigator.onLine) throw new Error('offline');
+  const { data, error } = await sb.from('scores').select('level,correct,total,points,time_seconds,play_day').limit(5000);
+  if (error) throw error;
+  return (data || []).concat(db.get('br_pending_' + uid, []));
+}
+
+/* works out the badges, saves them for offline, and says which ones are new since last time */
+async function refreshBadges() {
+  const rows = await fetchMyScores();
+  const stats = badgeStats(rows);
+  const earned = BADGES.filter(b => b.have(stats) >= b.need).map(b => b.id);
+  const prev = db.get('br_badges_' + uid, null);
+  db.set('br_badges_' + uid, { earned, stats });
+  return { stats, earned, fresh: prev ? earned.filter(id => prev.earned.indexOf(id) < 0) : [] };
+}
+
+async function loadBadgeChip() {
+  const cached = db.get('br_badges_' + uid, null);
+  if (cached) setText('h-badges', cached.earned.length + '/' + BADGES.length);
+  try {
+    const r = await refreshBadges();
+    setText('h-badges', r.earned.length + '/' + BADGES.length);
+    const note = document.getElementById('h-badge-note');
+    if (note && r.fresh.length) note.textContent = 'New badge unlocked: ' + r.fresh.map(id => BADGES.find(b => b.id === id).name).join(', ') + '.';
+  } catch (e) { if (!cached) setText('h-badges', '-'); }
+}
+
+function showNewBadges(fresh) {
+  const slot = document.getElementById('badge-slot');
+  if (!slot || !fresh.length) return;
+  slot.innerHTML = fresh.map(id => {
+    const b = BADGES.find(x => x.id === id);
+    return '<div class="card newbadge rise"><span class="bico">' + ic(b.icon) + '</span><div><h2>Badge unlocked: ' + esc(b.name) + '</h2><p class="muted">' + esc(b.desc) + '</p></div></div>';
+  }).join('') + '<div class="actions" style="margin-bottom:16px"><button class="btn alt sm" data-go="badges">' + ic('award') + 'See all badges</button></div>';
+  confetti();
+  setTimeout(() => play('badge'), 350);
+}
+
+function badgeGrid(stats, earned) {
+  const got = new Set(earned);
+  return '<div class="badges">' + BADGES.map((b, i) => {
+    const on = got.has(b.id);
+    const have = Math.min(stats ? b.have(stats) : 0, b.need);
+    return '<div class="badge' + (on ? ' on' : '') + ' rise" style="--i:' + (i % 8) + '"><span class="bico">' + ic(on ? b.icon : 'lock') + '</span><h3>' + esc(b.name) + '</h3><p>' + esc(b.desc) + '</p>' +
+      (on ? '<span class="pill">' + ic('check') + 'Unlocked</span>'
+          : '<div class="bprog"><div class="progress"><div class="fill" style="width:' + Math.round(have / b.need * 100) + '%"></div></div><span>' + have.toLocaleString() + ' / ' + b.need.toLocaleString() + '</span></div>') +
+      '</div>';
+  }).join('') + '</div>';
+}
+
+async function renderBadges() {
+  clearInterval(timerId);
+  renderNav('badges');
+  const token = ++boardToken;
+  const head = n => '<div class="page-head split rise"><div><h1>' + ic('award') + ' Badges</h1><p class="muted">Earn badges by playing, keeping streaks and scoring high.</p></div>' +
+    '<ul class="chips"><li class="chip"><span class="ico">' + ic('award') + '</span><div><strong>' + n + '/' + BADGES.length + '</strong><span class="t">unlocked</span></div></li></ul></div>';
+  const cached = db.get('br_badges_' + uid, null);
+  app.innerHTML = head(cached ? cached.earned.length : '-') + '<p id="b-note" class="msg ok" role="status"></p><div id="b-body">' +
+    (cached ? badgeGrid(cached.stats, cached.earned) : '<div class="card"><p class="empty"><i class="fa-solid fa-spinner fa-spin"></i>Loading...</p></div>') + '</div>';
+  try {
+    const r = await refreshBadges();
+    if (token !== boardToken) return;
+    app.innerHTML = head(r.earned.length) + '<p id="b-note" class="msg ok" role="status"></p><div id="b-body">' + badgeGrid(r.stats, r.earned) + '</div>';
+  } catch (e) {
+    if (token !== boardToken) return;
+    if (cached) {
+      const n = document.getElementById('b-note');
+      if (n) { n.className = 'msg err'; n.textContent = "You're offline, so this shows your badges as of the last time you were online."; }
+    } else {
+      const b = document.getElementById('b-body');
+      if (b) b.innerHTML = '<div class="card"><p class="empty">' + ic('plug-circle-xmark') + 'Connect to the internet to load your badges.</p></div>';
+    }
+  }
+}
+
+let boardPeriod = 'week';   // 'week' or 'all'
+let boardLevel = 'easy';
+
+/* The weekly board resets every Monday at 00:00 UTC */
+function resetIn() {
+  const d = new Date();
+  const days = (8 - d.getUTCDay()) % 7 || 7;
+  const target = Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate() + days);
+  const ms = Math.max(0, target - d.getTime());
+  return Math.floor(ms / 86400000) + 'd ' + Math.floor(ms % 86400000 / 3600000) + 'h';
+}
+
+async function renderBoard(level) {
+  clearInterval(timerId);
+  renderNav('board');
+  boardLevel = level;
+  const token = ++boardToken;
+  const daily = level === 'daily';
+  const period = daily ? 'day' : boardPeriod;
+  const week = period === 'week';
+  const tabs = LEVELS.concat('daily', 'overall');
+  const tabName = l => l === 'overall' ? 'Overall' : l === 'daily' ? 'Daily' : LABEL[l];
+  const tabIcon = l => l === 'overall' ? 'globe' : LVL_ICON[l];
+  const what = level === 'overall' ? 'all levels' : daily ? 'the daily challenge' : LABEL[level];
+  const intro = daily ? "Today's daily challenge: the same questions for everyone. The board resets in " + untilMidnight() + ' (00:00 UTC).'
+    : week ? 'Points earned this week on ' + what + '. The board resets in ' + resetIn() + ' (Monday, UTC).'
+    : 'Total points earned on ' + what + ', all time.';
+
+  app.innerHTML = '<div class="page-head rise"><h1>' + ic('trophy') + ' Leaderboard</h1>' +
+    '<p class="muted">' + intro + ' Streak is how many days in a row a player has finished a quiz.</p></div>' +
+    '<div class="row-tabs">' + (daily ? '<div></div>' :
+      '<div class="tabs"><button class="seg-btn' + (week ? ' on' : '') + '" data-period="week">' + ic('calendar-week') + 'This week</button>' +
+      '<button class="seg-btn' + (!week ? ' on' : '') + '" data-period="all">' + ic('infinity') + 'All time</button></div>') +
+    '<button class="btn ghost sm" data-board="' + level + '">' + ic('rotate') + 'Refresh</button></div>' +
+    '<div class="row-tabs" style="margin-top:0"><div class="tabs">' + tabs.map(l => '<button class="seg-btn' + (l === level ? ' on' : '') + '" data-board="' + l + '">' + ic(tabIcon(l)) + '<span class="lbl2">' + tabName(l) + '</span></button>').join('') + '</div></div>' +
+    '<div class="card" id="lb-body"><p class="empty"><i class="fa-solid fa-spinner fa-spin"></i>Loading...</p></div>';
+
+  let body;
+  try {
+    const rows = await lb(level === 'overall' ? null : level, 20, period);
+    if (token !== boardToken) return;
+    body = rows.length
+      ? '<div class="tablewrap"><table><thead><tr><th>Rank</th><th>Player</th><th>' + (daily ? 'Points today' : week ? 'Points this week' : 'Total points') + '</th><th>Streak</th></tr></thead><tbody>' +
+        rows.map((b, i) => '<tr' + (b.username === user ? ' class="me"' : '') + '><td><span class="rank r' + (i + 1) + '" aria-label="Rank ' + (i + 1) + '">' + (i < 3 ? ic('medal') : (i + 1)) + '</span></td>' +
+          '<td class="name">' + esc(b.username) + '</td><td>' + ic('coins') + ' ' + b.total_points + '</td>' +
+          '<td><span class="streak' + (b.streak ? '' : ' off') + '">' + ic('fire') + b.streak + (b.streak === 1 ? ' day' : ' days') + '</span></td></tr>').join('') +
+        '</tbody></table></div>'
+      : '<p class="empty">' + ic('ghost') + (daily ? "Nobody has played today's challenge yet. Be the first!" : week ? 'No points yet this week. Be the first on the board!' : 'No points yet' + (level === 'overall' ? '' : ' on ' + LABEL[level]) + '. Finish a quiz to get on the board.') + '</p>';
+  } catch (e) {
+    if (token !== boardToken) return;
+    body = navigator.onLine
+      ? '<p class="empty">' + ic('plug-circle-exclamation') + 'Could not load the leaderboard. Check your connection and press Refresh.</p>'
+      : '<p class="empty">' + ic('plug-circle-xmark') + "You're offline. Connect to the internet to see the leaderboard." + '</p>';
+  }
+  const el = document.getElementById('lb-body');
+  if (el) el.innerHTML = body;
+}
+
+/* ---------- In-page confirm ---------- */
+function ask(text, yes) {
+  pendingYes = yes;
+  const old = document.getElementById('dlg');
+  if (old) old.remove();
+  const d = document.createElement('div');
+  d.id = 'dlg';
+  d.innerHTML = '<div class="dlgbox" role="alertdialog"><span class="ico">' + ic('circle-question') + '</span><p>' + esc(text) + '</p>' +
+    '<div class="actions"><button class="btn alt" data-dlg="no">Cancel</button><button class="btn" data-dlg="yes">' + ic('check') + 'Yes</button></div></div>';
+  document.body.appendChild(d);
+}
+document.addEventListener('click', e => {
+  const b = e.target.closest('button[data-dlg]');
+  if (!b) return;
+  const yes = pendingYes;
+  pendingYes = null;
+  const d = document.getElementById('dlg');
+  if (d) d.remove();
+  if (b.dataset.dlg === 'yes' && yes) yes();
+});
+
+/* ---------- Click handling ---------- */
+app.addEventListener('click', e => {
+  const b = e.target.closest('button');
+  if (!b) return;
+  const d = b.dataset;
+
+  if (d.submit) { if (onSubmit && document.getElementById('f')) onSubmit(); return; }
+  if (d.auth) return renderAuth(d.auth);
+  if (d.install) {
+    if (installEvt) { installEvt.prompt(); installEvt.userChoice.finally(() => { installEvt = null; fillInstall(); }); }
+    return;
+  }
+  if (d.retry) return enter();
+  if (d.go === 'home') return renderHome();
+  if (d.go === 'badges') return renderBadges();
+  if (d.go === 'privacy') return renderPrivacy();
+  if (d.go === 'delete') return renderDelete();
+  if (d.go === 'logout') return doLogout();
+  if (d.period) { boardPeriod = d.period; return renderBoard(boardLevel); }
+  if (d.board) return renderBoard(d.board);
+  if (d.start) return startQuiz(d.start);
+  if (d.resume) return renderQuiz();
+  if (d.discard) {
+    ask('Discard this quiz? Your answers will be lost.', () => {
+      db.del('br_quiz_' + uid); Q = null; renderHome();
+    });
+    return;
+  }
+  if (d.result) {
+    const r = db.get('br_result_' + uid, null);
+    if (r) renderResult(r, false);
+    return;
+  }
+
+  if (!Q) return;
+  if (d.opt !== undefined) { Q.answers[Q.cur] = Number(d.opt); saveQ(); return renderQuiz(); }
+  if (d.q !== undefined) { Q.cur = Number(d.q); saveQ(); return renderQuiz(); }
+  if (d.act === 'prev' && Q.cur > 0) { Q.cur--; saveQ(); return renderQuiz(); }
+  if (d.act === 'next' && Q.cur < Q.qs.length - 1) { Q.cur++; saveQ(); return renderQuiz(); }
+  if (d.act === 'submit') {
+    const left = Q.answers.filter(a => a === null).length;
+    const text = left ? 'You have ' + left + ' unanswered question' + (left > 1 ? 's' : '') + '. Submit anyway?' : 'Submit your answers now?';
+    ask(text, () => finish(false));
+  }
+});
+
+app.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && e.target.tagName === 'INPUT' && e.target.closest('#f') && onSubmit) {
+    e.preventDefault();
+    onSubmit();
+  }
+});
+
+/* ---------- Start ---------- */
+/* Some previews cannot copy Headers objects or abort signals between frames, so turn them into plain data first */
+function safeFetch(url, opts) {
+  const o = Object.assign({}, opts || {});
+  if (o.headers && typeof o.headers.forEach === 'function' && !Array.isArray(o.headers)) {
+    const h = {};
+    o.headers.forEach((v, k) => { h[k] = v; });
+    o.headers = h;
+  }
+  delete o.signal;
+  return fetch(typeof url === 'string' ? url : String(url.url || url), o);
+}
+
+async function init() {
+  renderNav();
+  updateNet();
+  if (typeof BANK === 'undefined') {
+    app.innerHTML = '<div class="card narrow-card"><h2>' + ic('triangle-exclamation') + ' Questions did not load</h2><p class="muted" style="margin-top:8px">Make sure questions.js is uploaded in the same folder as index.html, then refresh.</p></div>';
+    return;
+  }
+  if (typeof supabase === 'undefined') {
+    const c = db.get('br_last', null);
+    if (c) return startOffline(c);
+    return renderSetup('The Supabase library did not load. Check your internet connection and refresh.');
+  }
+  if (SUPABASE_URL.includes('PASTE') || SUPABASE_KEY.includes('PASTE')) return renderSetup('');
+
+  sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY, {
+    global: { fetch: safeFetch },
+    auth: { flowType: 'implicit', persistSession: true, autoRefreshToken: true, detectSessionInUrl: true }
+  });
+
+  /* The reset-password email link brings the person back here with a recovery token in the address */
+  if (/error_code=|error_description=/.test(location.hash)) {
+    history.replaceState(null, '', location.pathname + location.search);
+    return renderAuth('login', { t: 'That link is invalid or has expired. Request a new reset link.' });
+  }
+  if (/type=recovery/.test(location.hash)) recovering = true;
+  sb.auth.onAuthStateChange(event => {
+    if (event === 'PASSWORD_RECOVERY') { recovering = true; setTimeout(renderRecovery, 0); }
+  });
+  if (recovering) {
+    setTimeout(() => { if (recovering && !document.getElementById('f')) renderRecovery(); }, 1000);
+    return;
+  }
+  await enter();
+}
+
+/* ---------- Offline bar ---------- */
+let netTimer = null;
+function updateNet(fromEvent) {
+  const bar = document.getElementById('netbar');
+  if (!bar) return;
+  clearTimeout(netTimer);
+  if (!navigator.onLine) {
+    bar.innerHTML = ic('plug-circle-xmark') + "You're offline. You can still play. Scores upload when you're back online.";
+    bar.hidden = false;
+  } else if (fromEvent) {
+    bar.innerHTML = ic('wifi') + 'Back online.';
+    bar.hidden = false;
+    netTimer = setTimeout(() => { bar.hidden = true; }, 2500);
+  } else {
+    bar.hidden = true;
+  }
+}
+window.addEventListener('offline', () => updateNet(true));
+window.addEventListener('online', async () => {
+  updateNet(true);
+  if (sb && uid) { try { await sb.auth.getSession(); } catch (e) {} flushPending(); }
+});
+
+/* ---------- Install as an app ---------- */
+let installEvt = null;
+const standalone = () => (window.matchMedia && matchMedia('(display-mode: standalone)').matches) || window.navigator.standalone === true;
+function fillInstall() {
+  const slot = document.getElementById('install-slot');
+  if (!slot) return;
+  if (standalone() || !('serviceWorker' in navigator) || !/^https?:$/.test(location.protocol)) { slot.innerHTML = ''; return; }
+  const ios = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  slot.innerHTML = '<div class="card install rise"><span class="ico">' + ic('mobile-screen-button') + '</span><div><h3>Get the app</h3><p class="muted">' +
+    (installEvt ? 'Install Brain Rush to play offline. The leaderboard still needs internet.'
+      : ios ? 'On iPhone: tap the Share button, then Add to Home Screen. After that you can play offline.'
+      : 'Open your browser menu and choose Install app or Add to Home screen. After that you can play offline.') + '</p></div>' +
+    (installEvt ? '<button class="btn" data-install="1">' + ic('download') + 'Install</button>' : '') + '</div>';
+}
+window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); installEvt = e; fillInstall(); });
+window.addEventListener('appinstalled', () => { installEvt = null; fillInstall(); });
+
+if ('serviceWorker' in navigator && /^https?:$/.test(location.protocol)) {
+  window.addEventListener('load', () => { navigator.serviceWorker.register('sw.js').catch(() => {}); });
+}
+
+/* ---------- Visitor counts (Cloudflare Web Analytics) ---------- */
+function startAnalytics() {
+  if (!CF_ANALYTICS_TOKEN || !/^https?:$/.test(location.protocol)) return;
+  const sc = document.createElement('script');
+  sc.defer = true;
+  sc.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+  sc.setAttribute('data-cf-beacon', JSON.stringify({ token: CF_ANALYTICS_TOKEN }));
+  document.head.appendChild(sc);
+}
+startAnalytics();
+
+init();
+</script>
+</body>
+</html>
